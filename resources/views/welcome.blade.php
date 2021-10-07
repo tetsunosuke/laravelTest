@@ -17,6 +17,7 @@
     
     <ul id="shopping-list">
       <form action="/delete" method="post" id="delete-button">
+      @csrf
         <li>
             <span>
             <input type="submit" name="button" id="delete" value="削除"></input>
