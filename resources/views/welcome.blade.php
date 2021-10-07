@@ -8,17 +8,18 @@
     <div class="header">
       <div class="header-logo">買い物リストアプリ</div>
   　</div>
-    <form action="/" method="post" id="container">
+  <form action="/add" method="post" id="container">
+      @csrf
       <label>リストの追加</label>
       <input required type="text" name="add" placeholder="買うものを入力してください" class="text-input"/>
       <input type="submit" value="追加" id="add-button"/>
     </form>
     
     <ul id="shopping-list">
-      <form>
+      <form action="/delete" method="post" id="delete-button">
         <li>
             <span>
-            <input type="submit" name="button" id="delete-button" value="削除"></input>
+            <input type="submit" name="button" id="delete" value="削除"></input>
             </span>
           </li>
       </form>
