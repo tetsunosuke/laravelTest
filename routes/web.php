@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\ActionController;
 
-Route::post('/add', 'App\Http\Controllers\ActionController@add');
+// Laravel 8の書き方に修正
+Route::get('/', [ActionController::class, 'index']);
+Route::post('/add', [ActionController::class, 'add']);
+Route::post('/delete', [ActionController::class, 'delete']);
 
-Route::post('/delete', 'App\Http\Controllers\ActionController@delete');

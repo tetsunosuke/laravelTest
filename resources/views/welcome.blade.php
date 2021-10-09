@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="{{asset('css/mycss.css')}}">
   </head>
   <body>
+  @php
+  dump($tasks)
+  @endphp
     <div class="header">
       <div class="header-logo">買い物リストアプリ</div>
   　</div>
@@ -14,16 +17,20 @@
       <input required type="text" name="add" placeholder="買うものを入力してください" class="text-input"/>
       <input type="submit" value="追加" id="add-button"/>
     </form>
-    
+
     <ul id="shopping-list">
+@foreach($tasks as $task)
+      <li>{{ $task->content }} </li>
       <form action="/delete" method="post" id="delete-button">
       @csrf
         <li>
             <span>
             <input type="submit" name="button" id="delete" value="削除"></input>
+            <input type="hidden" name="id" value="{{ $task->id }}"></input>
             </span>
           </li>
       </form>
+@endforeach
     </ul>
 
     <div class="footer">
